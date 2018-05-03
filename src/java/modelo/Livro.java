@@ -50,11 +50,19 @@ public class Livro implements Serializable {
     @Column(name = "datapublicacao")
     @Temporal(TemporalType.DATE)
     private Date datapublicacao;
-    @JoinTable(name = "autor_livro", joinColumns = {
-        @JoinColumn(name = "livro", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "autor", referencedColumnName = "id")})
+    @Column(name = "sinopse")
+    private String sinopse;
+    @Column(name = "foto1")
+    private String foto1;
+    @Column(name = "foto3")
+    private String foto3;
+    @Column(name = "foto2")
+    private String foto2;
+    @JoinTable(name="autor_livro",joinColumns={
+        @JoinColumn(name = "livro",referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "autor",referencedColumnName = "id")})
     @ManyToMany
-    private List<Autor> autorList;
+    private List<Autor>autorList;
     @JoinColumn(name = "categoria", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Categoria categoria;
@@ -108,12 +116,36 @@ public class Livro implements Serializable {
         this.datapublicacao = datapublicacao;
     }
 
-    public List<Autor> getAutorList() {
-        return autorList;
+    public String getSinopse() {
+        return sinopse;
     }
 
-    public void setAutorList(List<Autor> autorList) {
-        this.autorList = autorList;
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getFoto1() {
+        return foto1;
+    }
+
+    public void setFoto1(String foto1) {
+        this.foto1 = foto1;
+    }
+
+    public String getFoto3() {
+        return foto3;
+    }
+
+    public void setFoto3(String foto3) {
+        this.foto3 = foto3;
+    }
+
+    public String getFoto2() {
+        return foto2;
+    }
+
+    public void setFoto2(String foto2) {
+        this.foto2 = foto2;
     }
 
     public Categoria getCategoria() {
