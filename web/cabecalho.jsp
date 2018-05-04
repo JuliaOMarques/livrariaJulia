@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<%
+    //verifica se esta logado
+    if(session.getAttribute("administrador")==null)
+    {
+        response.sendRedirect("../login.jsp");
+        return;
+    }
+%>
 <html lang="pt-br">
 
 <head>
