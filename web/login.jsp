@@ -42,7 +42,7 @@
             <label>Senha:</label>
             <input type="password" name="txtSenha"/>
             <br/>
-            <button type="button" class=""/>OK</button>
+            <button type="submit">OK</button>
         </form>
     </body>
 </html>

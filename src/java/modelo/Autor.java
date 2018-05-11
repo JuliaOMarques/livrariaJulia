@@ -134,7 +134,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Autor[ id=" + id + " ]";
+        return this.getNome();
     }
     
 }

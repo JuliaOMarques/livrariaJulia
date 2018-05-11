@@ -186,7 +186,7 @@ public class Livro implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Livro[ id=" + id + " ]";
+        return this.getNome();
     }
     
 }

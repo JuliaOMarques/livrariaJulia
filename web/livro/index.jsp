@@ -1,3 +1,4 @@
+<%@page import="util.StormData"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
@@ -93,7 +94,7 @@
                         <td><%=item.getNome() %></td>
                         <td><%=item.getPreco() %></td>
                         <td><%=item.getSinopse() %></td>
-                        <td><%=item.getDatapublicacao() %></td>
+                        <td><%=StormData.formata(item.getDatapublicacao()) %></td>
                         <td><%=item.getEditora() %></td>
                         <td><%=item.getCategoria() %></td>
                         <td><img src="../arquivos/"<%=item.getFoto1()%> height="70px" width="50px"/></td>
