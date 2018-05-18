@@ -16,6 +16,16 @@ String classe = "";
         obj.setNacionalidade(request.getParameter("txtNacionalidade"));
         obj.setSexo(request.getParameter("txtSexo").charAt(0));
         
+        if(request.getParameter("txtFoto")!=null)
+        {
+            obj.setFoto(request.getParameter("txtFoto"));
+        }
+        
+        else
+        {
+            obj.setFoto(request.getParameter("txtFotoVelha"));
+        }
+        
         Boolean resultado = dao.alterar(obj);
         
         if(resultado){
@@ -96,7 +106,9 @@ String classe = "";
                     
                     <div class="form-group">
                         <label>Foto:</label>
-                        <input type="file" name="txtFoto" required value="<%=obj.getFoto() %>" />
+                        <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getFoto() %>" />
+                        <img src="../arquivos/<%=obj.getFoto()%>" id=""Foto/>
+                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getFoto()%>"/>
                     </div>
 
                 <button class="btn btn-info btn-sm" type="submit">Salvar</button>

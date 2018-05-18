@@ -151,25 +151,28 @@ String classe = "";
                         <label>Foto 1:</label>
                         <input class="form-control" type="file" name="arquivo1" id="arquivo1"  accept="image/*" />
                         <img src="../arquivos/<%=obj.getFoto1()%>" id="img1"/>
+                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getFoto1()%>"/>
                     </div>
                     
                     <div class="form-group">
                         <label>Foto 2:</label>
                         <input class="form-control" type="file" name="arquivo2" id="arquivo2"  accept="image/*" />
                         <img src="../arquivos/<%=obj.getFoto2()%>" id="img1"/>
+                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getFoto2()%>"/>
                     </div>
                     
                     <div class="form-group">
                         <label>Foto 3:</label>
                         <input class="form-control" type="file" name="arquivo3" id="arquivo3"  accept="image/*" />
                         <img src="../arquivos/<%=obj.getFoto3()%>" id="img1"/>
+                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getFoto3()%>"/>
                     </div>
                     
                     <div class="form-group">
                         <label>Autores</label>
 
                         <%for (Autor a : autores) {
-                            if(obj.get().contains())
+                            if(obj.getAutorList().contains(a))
                             {
                                 selecionado = "checked";
                             }

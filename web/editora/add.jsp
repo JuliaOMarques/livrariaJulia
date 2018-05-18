@@ -9,11 +9,11 @@
     Editora obj = new Editora();
     EditoraDAO dao = new EditoraDAO();
     
-    if (request.getParameter("txtNome") != null && request.getParameter("txtLogo")!= null) {
+    if (request.getParameter("txtNome") != null && request.getParameter("txtFoto")!= null) {
        
         obj.setCnpj(request.getParameter("txtCnpj"));
         obj.setNome(request.getParameter("txtNome"));
-        obj.setLogo(request.getParameter("txtLogo"));
+        obj.setLogo(request.getParameter("txtFoto"));
         
 
         Boolean resultado = dao.incluir(obj);
@@ -70,7 +70,8 @@
                     
                     <div class="form-group">
                         <label>Logo:</label>
-                        <input type="file"  name="txtLogo" required/>
+                        <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getLogo()%>" />
+                        <img src="../arquivos/<%=obj.getLogo()%>" id=""Foto/>
                     </div>
 
                     <button class="btn btn-warning btn-sm" type="submit">Salvar</button>

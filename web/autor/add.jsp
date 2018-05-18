@@ -9,7 +9,7 @@
     Autor obj = new Autor();
     AutorDAO dao = new AutorDAO();
     
-    if (request.getParameter("txtNome") != null && request.getParameter("txtNacionalidade")!= null && request.getParameter("Sexo")!= null) {
+    if (request.getParameter("txtNome") != null && request.getParameter("txtNacionalidade")!= null && request.getParameter("Sexo")!= null && request.getParameter("txtFoto")!= null) {
         obj.setNome(request.getParameter("txtNome"));
         obj.setNacionalidade(request.getParameter("txtNacionalidade"));
         obj.setSexo(request.getParameter("Sexo").charAt(0));
@@ -79,7 +79,8 @@
                     
                     <div class="form-group">
                         <label>Foto:</label>
-                        <input type="file"  name="txtFoto" required/>
+                        <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getFoto() %>" />
+                        <img src="../arquivos/<%=obj.getFoto()%>" id=""Foto/>
                     </div>
 
                     <button class="btn btn-warning btn-sm" type="submit">Salvar</button>

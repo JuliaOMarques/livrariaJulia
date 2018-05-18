@@ -164,6 +164,14 @@ public class Livro implements Serializable {
         this.editora = editora;
     }
 
+    public List<Autor> getAutorList() {
+        return autorList;
+    }
+
+    public void setAutorList(List<Autor> autorList) {
+        this.autorList = autorList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

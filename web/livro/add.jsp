@@ -19,6 +19,8 @@
     Categoria c = new Categoria();
     Editora e = new Editora();
     
+    Livro obj = new Livro();
+    
     if(request.getMethod().equals("POST"))
     {
         //pego uma lista de autores(com mesmo name)
@@ -124,18 +126,21 @@
                     
                     <div class="form-group">
                         <label>Foto 1:</label>
-                        <input type="file"  name="txtFoto1" required/>
+                        <input class="form-control" type="file" name="txtFoto1" required value="<%=obj.getFoto1()%>" />
+                        <img src="../arquivos/<%=obj.getFoto1()%>" id=""Foto/>
                     </div>
 
                     <div class="form-group">
                         <label>Foto 2:</label>
-                        <input type="file"  name="txtFoto2" required/>
+                        <input class="form-control" type="file" name="txtFoto2" required value="<%=obj.getFoto2()%>" />
+                        <img src="../arquivos/<%=obj.getFoto2()%>" id=""Foto/>
                     </div>
                     
                     
                     <div class="form-group">
                         <label>Foto 3:</label>
-                        <input type="file"  name="txtFoto3" required/>
+                        <input class="form-control" type="file" name="txtFoto3" required value="<%=obj.getFoto3()%>" />
+                        <img src="../arquivos/<%=obj.getFoto3()%>" id=""Foto/>
                     </div>
                     
                     <button class="btn btn-warning btn-sm" type="submit">Salvar</button>

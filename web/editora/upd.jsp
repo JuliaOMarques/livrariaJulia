@@ -85,7 +85,9 @@ String classe = "";
                     
                     <div class="form-group">
                         <label>Logo:</label>
-                        <input type="file" name="txtLogo" required value="<%=obj.getLogo() %>" />
+                        <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getLogo()%>" />
+                        <img src="../arquivos/<%=obj.getLogo()%>" id=""Foto/>
+                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getLogo()%>"/>
                     </div>
 
                 <button class="btn btn-info btn-sm" type="submit">Salvar</button>
