@@ -139,8 +139,7 @@ String classe = "";
                             }
                         %>
                         <option value="<%=c.getId()%>" <%=selecionado%>>
-                            
-                            
+                        
                         <%=c.getNome()%>
                         </option>
                         <%}%>
@@ -189,7 +188,6 @@ String classe = "";
                 <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                 
             </form>
-s
         </div>
 
 

@@ -14,7 +14,7 @@ String classe = "";
         obj.setId(Integer.parseInt(request.getParameter("txtId")));
         obj.setNome(request.getParameter("txtNome"));
         obj.setNacionalidade(request.getParameter("txtNacionalidade"));
-        obj.setSexo(request.getParameter("txtSexo").charAt(0));
+        obj.setSexo(request.getParameter("Sexo").charAt(0));
         
         if(request.getParameter("txtFoto")!=null)
         {
@@ -101,24 +101,43 @@ String classe = "";
                     
                     <div class="form-group">
                         <label>Sexo:</label>
-                        <input class="form-control" type="text" name="txtSexo" required value="<%=obj.getSexo() %>" />
+                        <select name="Sexo" class="form-control" required value="<%=obj.getSexo()%>"/>
+                            <option value="M">Masculino</option>                            
+                            <option value="F">Feminino</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">
                         <label>Foto:</label>
                         <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getFoto() %>" />
-                        <img src="../arquivos/<%=obj.getFoto()%>" id=""Foto/>
+                        <img src="../arquivos/<%=obj.getFoto()%>" id="img1"Foto/>
                         <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getFoto()%>"/>
                     </div>
 
                 <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                 
             </form>
-s
         </div>
-
 
     </div>
 </div>
 <!-- /.row -->
 <%@include file="../rodape.jsp" %>
+
+<script>
+    function readURL(input,destino) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#'+destino).attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#arquivo1").change(function(){
+        readURL(this,"img1");
+    });
+</script>

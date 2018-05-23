@@ -14,6 +14,16 @@ String classe = "";
         obj.setCnpj(request.getParameter("txtCnpj"));
         obj.setNome(request.getParameter("txtNome"));
         
+        if(request.getParameter("txtLogo")!=null)
+        {
+            obj.setLogo(request.getParameter("txtLogo"));
+        }
+        
+        else
+        {
+            obj.setLogo(request.getParameter("txtLogoVelho"));
+        }
+        
         Boolean resultado = dao.alterar(obj);
         
         if(resultado){
@@ -25,7 +35,8 @@ String classe = "";
             classe = "alert-danger";
         }
         
-    }else{
+    }
+    else{
         //e GET
         if(request.getParameter("codigo") == null){
             response.sendRedirect("index.jsp");
@@ -85,15 +96,14 @@ String classe = "";
                     
                     <div class="form-group">
                         <label>Logo:</label>
-                        <input class="form-control" type="file" name="txtFoto" required value="<%=obj.getLogo()%>" />
-                        <img src="../arquivos/<%=obj.getLogo()%>" id=""Foto/>
-                        <inbut type="hidden" name="txtFotoVelha" value="<%=obj.getLogo()%>"/>
+                        <input class="form-control" type="file" name="txtLogo" id="arquivo1"  accept="image/*" />
+                        <img src="../arquivos/<%=obj.getLogo()%>" id="img1"/>
+                        <inbut type="hidden" name="txtLogoVelho" value="<%=obj.getLogo()%>"/>
                     </div>
 
                 <button class="btn btn-info btn-sm" type="submit">Salvar</button>
                 
             </form>
-s
         </div>
 
 
@@ -101,3 +111,21 @@ s
 </div>
 <!-- /.row -->
 <%@include file="../rodape.jsp" %>
+
+<script>
+    function readURL(input,destino) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#'+destino).attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#txtLogo").change(function(){
+        readURL(this,"img1");
+    });
+</script>
