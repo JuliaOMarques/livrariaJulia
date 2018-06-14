@@ -1,4 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="modelo.Livro"%>
+<%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp" %>
+<%
+    LivroDAO dao = new LivroDAO();
+    List<Livro> lista = dao.listar();
+    dao.fecharConexao();
+%>
 <!-- Home -->
 
 	<div class="home">
@@ -13,7 +21,7 @@
 					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
-							<div class="home_slider_subtitle">Promo Prices</div>
+							<div class="home_slider_subtitle">Preços Promocionais</div>
 							<div class="home_slider_title">Lançamentos</div>
 						</div>	
 					</div>
@@ -24,7 +32,7 @@
 					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
-							<div class="home_slider_subtitle">Promo Prices</div>
+							<div class="home_slider_subtitle">Preços Promocionais</div>
 							<div class="home_slider_title">Promoções</div>
 						</div>	
 					</div>
@@ -35,7 +43,7 @@
 					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="home_slider_content_inner">
-							<div class="home_slider_subtitle">Promo Prices</div>
+							<div class="home_slider_subtitle">Preços Promocionais</div>
 							<div class="home_slider_title">Digitais</div>
 						</div>	
 					</div>
@@ -67,66 +75,6 @@
 		</div>
 	</div>
 
-	<!-- Promo -->
-
-	<div class="promo">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title_container text-center">
-						<div class="section_subtitle">only the best</div>
-						<div class="section_title">promo prices</div>
-					</div>
-				</div>
-			</div>
-			<div class="row promo_container">
-
-				<!-- Promo Item -->
-				<div class="col-lg-4 promo_col">
-					<div class="promo_item">
-						<div class="promo_image">
-							<img src="images/promo_1.jpg" alt="">
-							<div class="promo_content promo_content_1">
-								<div class="promo_title">-30% off</div>
-								<div class="promo_subtitle">Livros de ficção</div>
-							</div>
-						</div>
-						<div class="promo_link"><a href="#">Shop Now</a></div>
-					</div>
-				</div>
-
-				<!-- Promo Item -->
-				<div class="col-lg-4 promo_col">
-					<div class="promo_item">
-						<div class="promo_image">
-							<img src="images/promo_2.jpg" alt="">
-							<div class="promo_content promo_content_2">
-								<div class="promo_title">-30% off</div>
-								<div class="promo_subtitle">Livros digitais</div>
-							</div>
-						</div>
-						<div class="promo_link"><a href="#">Shop Now</a></div>
-					</div>
-				</div>
-
-				<!-- Promo Item -->
-				<div class="col-lg-4 promo_col">
-					<div class="promo_item">
-						<div class="promo_image">
-							<img src="images/promo_3.jpg" alt="">
-							<div class="promo_content promo_content_3">
-								<div class="promo_title">-25% off</div>
-								<div class="promo_subtitle">Nacionais</div>
-							</div>
-						</div>
-						<div class="promo_link"><a href="#">Shop Now</a></div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
 	<!-- New Arrivals -->
 
 	<div class="arrivals">
@@ -134,13 +82,15 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title_container text-center">
-						<div class="section_subtitle">only the best</div>
+						<div class="section_subtitle">apenas o melhor</div>
 						<div class="section_title">Produtos novos</div>
 					</div>
 				</div>
 			</div>
-			<div class="row products_container">
-
+		<div class="row products_container">
+                    <%for(Livro livro:lista)
+                            {
+                                %>
 				<!-- Product -->
 				<div class="col-lg-4 product_col">
 					<div class="product">
@@ -166,59 +116,7 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Product -->
-				<div class="col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-							<img src="images/product_2.jpg" alt="">
-						</div>
-						<div class="rating rating_4">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">50 tons de cinza</a></div>
-								<div class="product_price">R$18.00</div>
-							</div>
-							<div class="product_options">
-								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Product -->
-				<div class="col-lg-4 product_col">
-					<div class="product">
-						<div class="product_image">
-							<img src="images/product_3.jpg" alt="">
-						</div>
-						<div class="rating rating_4">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-						<div class="product_content clearfix">
-							<div class="product_info">
-								<div class="product_name"><a href="product.html">Como eu era antes de você</a></div>
-								<div class="product_price">R$16.00</div>
-							</div>
-							<div class="product_options">
-								<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
-								<div class="product_fav product_option">+</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+                                <% }%>
 			</div>
 		</div>
 	</div>
@@ -231,8 +129,7 @@
 			<div class="extra_1_content d-flex flex-column align-items-center justify-content-center text-center">
 				<div class="extra_1_price">30%<span>off</span></div>
 				<div class="extra_1_title">Livros de Romance</div>
-				<div class="extra_1_text">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
-				<div class="button extra_1_button"><a href="checkout.html">check out</a></div>
+				<div class="button extra_1_button"><a href="checkout.html">confira</a></div>
 			</div>
 		</div>
 		<div class="extra_promo extra_promo_2">
@@ -243,8 +140,8 @@
 					<div class="extra_2_top">Mix</div>
 					<div class="extra_2_bottom">Match</div>
 				</div>
-				<div class="extra_2_text">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
-				<div class="button extra_2_button"><a href="checkout.html">check out</a></div>
+				<div class="extra_2_text"> </div>
+				<div class="button extra_2_button"><a href="checkout.html">confira</a></div>
 			</div>
 		</div>
 	</div>
@@ -264,7 +161,7 @@
 						</ul>
 					</div>
 					<div class="gallery_text text-center">*Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra.</div>
-					<div class="button gallery_button"><a href="#">submit</a></div>
+					<div class="button gallery_button"><a href="#">increva-se</a></div>
 				</div>
 			</div>
 		</div>	
@@ -326,8 +223,8 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title_container text-center">
-						<div class="section_subtitle">only the best</div>
-						<div class="section_title">testimonials</div>
+						<div class="section_subtitle">apenas o melhor</div>
+						<div class="section_title">depoimentos</div>
 					</div>
 				</div>
 			</div>
@@ -339,11 +236,10 @@
 
 						<!-- Testimonial Item -->
 						<div class="owl-item">
-							<div class="test_text">?Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestibulum ultrices nulla. Aliquam egestas tempor leo.?</div>
 							<div class="test_content">
 								<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
 								<div class="test_name">Chris Smith</div>
-								<div class="test_title">client</div>
+								<div class="test_title">cliente</div>
 							</div>
 						</div>
 
@@ -353,17 +249,16 @@
 							<div class="test_content">
 								<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
 								<div class="test_name">Sophia</div>
-								<div class="test_title">client</div>
+								<div class="test_title">cliente</div>
 							</div>
 						</div>
 
 						<!-- Testimonial Item -->
 						<div class="owl-item">
-							<div class="test_text">?Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestibulum ultrices nulla. Aliquam egestas tempor leo.?</div>
 							<div class="test_content">
 								<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
 								<div class="test_name">Helmet</div>
-								<div class="test_title">client</div>
+								<div class="test_title">cliente</div>
 							</div>
 						</div>
 
@@ -383,7 +278,7 @@
 				<div class="row">
 					<div class="col">
 						<div class="section_title_container text-center">
-							<div class="section_subtitle">only the best</div>
+							<div class="section_subtitle">apenas o melhor</div>
 							<div class="section_title">Inscreva-se para 20% de desconto</div>
 						</div>
 					</div>
@@ -393,10 +288,9 @@
 						<div class="newsletter_form_container">
 							<form action="#">
 								<input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
-								<button type="submit" class="newsletter_button">subscribe</button>
+								<button type="submit" class="newsletter_button">Increva-se</button>
 							</form>
 						</div>
-						<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
 					</div>
 				</div>
 			</div>

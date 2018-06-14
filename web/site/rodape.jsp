@@ -4,14 +4,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="footer_logo"><a href="#">Wish</a></div>
+					<div class="footer_logo"><a href="#">wonderland</a></div>
 					<nav class="footer_nav">
 						<ul>
 							<li><a href="index.html">home</a></li>
-							<li><a href="categories.html">clothes</a></li>
-							<li><a href="categories.html">accessories</a></li>
-							<li><a href="categories.html">lingerie</a></li>
-							<li><a href="contact.html">contact</a></li>
+							<li><a href="categories.html">livros</a></li>
+							<li><a href="categories.html">digitais</a></li>
+							<li><a href="categories.html">lançamentos</a></li>
+							<li><a href="contact.html">contato</a></li>
 						</ul>
 					</nav>
 					<div class="footer_social">

@@ -23,14 +23,14 @@
 
 	<header class="header">
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="#">Wish</a></div>
+			<div class="logo"><a href="#">Wonderland</a></div>
 			<nav class="main_nav">
 				<ul>
 					<li><a href="#">home</a></li>
-					<li><a href="categories.html">clothes</a></li>
-					<li><a href="categories.html">accessories</a></li>
-					<li><a href="categories.html">lingerie</a></li>
-					<li><a href="contact.html">contact</a></li>
+					<li><a href="categories.html">livros</a></li>
+					<li><a href="categories.html">digitais</a></li>
+					<li><a href="categories.html">lançamentos</a></li>
+					<li><a href="contact.html">contato</a></li>
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
@@ -80,7 +80,7 @@
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
 		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<div class="logo menu_mm"><a href="#">Wish</a></div>
+		<div class="logo menu_mm"><a href="#">Wonderland</a></div>
 		<div class="search">
 			<form action="#">
 				<input type="search" class="search_input menu_mm" required="required">
@@ -90,10 +90,10 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="#">home</a></li>
-				<li class="menu_mm"><a href="#">clothes</a></li>
-				<li class="menu_mm"><a href="#">accessories</a></li>
-				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="#">contact</a></li>
+				<li class="menu_mm"><a href="#">livros</a></li>
+				<li class="menu_mm"><a href="#">digitais</a></li>
+				<li class="menu_mm"><a href="#">lançamentos</a></li>
+				<li class="menu_mm"><a href="#">contato</a></li>
 			</ul>
 		</nav>
 	</div>
