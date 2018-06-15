@@ -1,3 +1,30 @@
+<!-- Newsletter -->
+<div class="newsletter">
+    <div class="newsletter_content">
+        <div class="newsletter_image" style="background-image:url(images/newsletter.jpg)"></div>
+        <div class="container">
+	<div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">apenas o melhor</div>
+                    <div class="section_title">Inscreva-se para 20% de desconto</div>
+                </div>
+            </div>
+	</div>
+            <div class="row newsletter_container">
+		<div class="col-lg-10 offset-lg-1">
+                    <div class="newsletter_form_container">
+			<form action="#">
+                            <input type="email" class="newsletter_input" required="required" placeholder="E-mail aqui">
+                            <button type="submit" class="newsletter_button">Increva-se</button>
+			</form>
+                    </div>
+		</div>
+            </div>
+        </div>
+    </div>
+</div>
+        
 <!-- Footer -->
 
 	<footer class="footer">
@@ -7,7 +34,7 @@
 					<div class="footer_logo"><a href="#">wonderland</a></div>
 					<nav class="footer_nav">
 						<ul>
-							<li><a href="index.html">home</a></li>
+							<li><a href="index.jsp">home</a></li>
 							<li><a href="categories.html">livros</a></li>
 							<li><a href="categories.html">digitais</a></li>
 							<li><a href="categories.html">lançamentos</a></li>
@@ -32,7 +59,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
+<!--<script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
@@ -40,5 +67,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/product_custom.js"></script>-->
 </body>
 </html>

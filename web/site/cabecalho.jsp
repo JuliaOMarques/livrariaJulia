@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Wish</title>
+<!--<head>
+<title>Wonderland</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Wish shop project">
@@ -14,7 +14,9 @@
 <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-</head>
+<link rel="stylesheet" type="text/css" href="styles/product.css">
+<link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
+</head>-->
 <body>
 
 <div class="super_container">
@@ -26,7 +28,7 @@
 			<div class="logo"><a href="#">Wonderland</a></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="#">home</a></li>
+					<li><a href="index.jsp">home</a></li>
 					<li><a href="categories.html">livros</a></li>
 					<li><a href="categories.html">digitais</a></li>
 					<li><a href="categories.html">lançamentos</a></li>
