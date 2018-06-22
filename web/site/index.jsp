@@ -1,3 +1,4 @@
+<%@page import="modelo.Categoria"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
@@ -5,6 +6,17 @@
 <%
     LivroDAO dao = new LivroDAO();
     List<Livro> lista = dao.listar();
+    
+    if (request.getParameter("categoriaid")!=null)
+    {
+        Integer id = Integer.parseInt(request.getParameter("categoriaid"));
+        Categoria c = cdao.buscarPorChavePrimaria(id);
+        lista = c.getLivroList();
+    }
+    else
+    {
+        lista = dao.listar();
+    }
     dao.fecharConexao();
 %>
 <head>
@@ -177,7 +189,7 @@
                 <div class="button gallery_button"><a href="#">increva-se</a></div>
             </div>
         </div>
-    </div>	
+    </div>
     <div class="gallery_slider_container">
 
         <!-- Gallery Slider -->
@@ -229,57 +241,6 @@
     </div>	
 </div>
 
-<!-- Testimonials -->
-
-<div class="testimonials">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="section_title_container text-center">
-                    <div class="section_subtitle">apenas o melhor</div>
-                    <div class="section_title">depoimentos</div>
-                </div>
-            </div>
-        </div>
-        <div class="row test_slider_container">
-            <div class="col">
-
-                <!-- Testimonials Slider -->
-                <div class="owl-carousel owl-theme test_slider text-center">
-
-                    <!-- Testimonial Item -->
-                    <div class="owl-item">
-                        <div class="test_content">
-                            <div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
-                            <div class="test_name">Chris Smith</div>
-                            <div class="test_title">cliente</div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Item -->
-                    <div class="owl-item">
-                        <div class="test_content">
-                            <div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
-                            <div class="test_name">Sophia</div>
-                            <div class="test_title">cliente</div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Item -->
-                    <div class="owl-item">
-                        <div class="test_content">
-                            <div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
-                            <div class="test_name">Helmet</div>
-                            <div class="test_title">cliente</div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
