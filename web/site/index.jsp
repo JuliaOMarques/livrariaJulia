@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="row products_container">
-            <%for (Livro livro : lista) {
+            <%for (Livro livro : lista){
             %>
             <!-- Product -->
             <div class="col-lg-4 product_col">
@@ -132,8 +132,8 @@
                     </div>
                     <div class="product_content clearfix">
                         <div class="product_info">
-                            <div class="product_name"><a href="product.html">Harry Potter e a Camâra Secreta</a></div>
-                            <div class="product_price">R$25.00</div>
+                            <div class="product_name"><a href="produtos.jsp">Como eu era antes de você</a></div>
+                            <div class="product_price">R$35.00</div>
                         </div>
                         <div class="product_options">
                             <div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>

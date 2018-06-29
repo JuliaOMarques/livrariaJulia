@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
 </head>
 <!-- Home -->
-
 <div class="home">
     <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/product.jpg" data-speed="0.8"></div>
     <div class="container">
@@ -67,7 +66,7 @@
             <div class="col-lg-5">
                 <div class="product_content">
                     <div class="product_name">Como eu era antes de você</div>
-                    <div class="product_price">$35.00</div>
+                    <div class="product_price">R$35.00</div>
                     <div class="rating rating_4" data-rating="4">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -180,4 +179,4 @@
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/product_custom.js"></script>
-<%@include file="rodape.jsp" %>
+<%@include file="rodape.jsp"%>
