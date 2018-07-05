@@ -6,7 +6,6 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,12 +23,10 @@ import javax.persistence.Table;
  * @author Aluno
  */
 @Entity
-@Table(name = "autor")
+@Table(name = "compralivro")
 @NamedQueries({
-    @NamedQuery(name = "Autor.findAll", query = "SELECT a FROM Autor a")})
-public class Autor implements Serializable {
-
- 
+    @NamedQuery(name = "Compralivro.findAll", query = "SELECT c FROM Compralivro c")})
+public class Compralivro implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,31 +35,29 @@ public class Autor implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "qtdade")
+    private int qtdade;
     @Basic(optional = false)
-    @Column(name = "nacionalidade")
-    private String nacionalidade;
-    @Basic(optional = false)
-    @Column(name = "sexo")
-    private Character sexo;
-    @Column(name = "foto")
-    private String foto;
-    @ManyToMany(mappedBy = "autorList")
-    private List<Livro> livroList;
+    @Column(name = "valorunitario")
+    private float valorunitario;
+    @JoinColumn(name = "compra", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Compra compra;
+    @JoinColumn(name = "livro", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Livro livro;
 
-    public Autor() {
+    public Compralivro() {
     }
 
-    public Autor(Integer id) {
+    public Compralivro(Integer id) {
         this.id = id;
     }
 
-    public Autor(Integer id, String nome, String nacionalidade, Character sexo) {
+    public Compralivro(Integer id, int qtdade, float valorunitario) {
         this.id = id;
-        this.nome = nome;
-        this.nacionalidade = nacionalidade;
-        this.sexo = sexo;
+        this.qtdade = qtdade;
+        this.valorunitario = valorunitario;
     }
 
     public Integer getId() {
@@ -74,44 +68,36 @@ public class Autor implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public int getQtdade() {
+        return qtdade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setQtdade(int qtdade) {
+        this.qtdade = qtdade;
     }
 
-    public String getNacionalidade() {
-        return nacionalidade;
+    public float getValorunitario() {
+        return valorunitario;
     }
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
+    public void setValorunitario(float valorunitario) {
+        this.valorunitario = valorunitario;
     }
 
-    public Character getSexo() {
-        return sexo;
+    public Compra getCompra() {
+        return compra;
     }
 
-    public void setSexo(Character sexo) {
-        this.sexo = sexo;
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 
-    public String getFoto() {
-        return foto;
+    public Livro getLivro() {
+        return livro;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public List<Livro> getLivroList() {
-        return livroList;
-    }
-
-    public void setLivroList(List<Livro> livroList) {
-        this.livroList = livroList;
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
     @Override
@@ -124,10 +110,10 @@ public class Autor implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Autor)) {
+        if (!(object instanceof Compralivro)) {
             return false;
         }
-        Autor other = (Autor) object;
+        Compralivro other = (Compralivro) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -136,7 +122,7 @@ public class Autor implements Serializable {
 
     @Override
     public String toString() {
-        return this.getNome();
+        return "modelo.Compralivro[ id=" + id + " ]";
     }
     
 }
