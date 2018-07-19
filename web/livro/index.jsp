@@ -59,7 +59,7 @@
 <!-- /.row -->
 <div class="row">
     <div class="panel panel-default">
-        <form action="#" method="post">
+        <form action="../UploadWS" method="POST" enctype="multipart/form-data">
             <div class="form-group input-group">
                 <input type="text" class="form-control" name="txtFiltro" placeholder="digite...">
                                 <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
@@ -75,13 +75,13 @@
                         <th>Código</th>
                         <th>Nome</th>
                         <th>Preço</th>
-                        <th>Sinopse</th>
                         <th>Data Publicação</th>
-                        <th>Editora</th>
                         <th>Categoria</th>
+                        <th>Editora</th>
                         <th>Foto 1</th>
                         <th>Foto 2</th>
                         <th>Foto 3</th>
+                        <th>Sinopse</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -90,21 +90,18 @@
                     {
                     %>
                     <tr>
-                        <td><%=item.getId()%></td>
+                        <td><%=item.getId() %></td>
                         <td><%=item.getNome() %></td>
                         <td><%=item.getPreco() %></td>
-                        <td><%=item.getSinopse() %></td>
                         <td><%=StormData.formata(item.getDatapublicacao()) %></td>
-                        <td><%=item.getEditora() %></td>
-                        <td><%=item.getCategoria() %></td>
-                        <td><img src="../arquivos/"<%=item.getFoto1()%> height="70px" width="50px"/></td>
-                        <td><img src="../arquivos/"<%=item.getFoto2()%> height="70px" width="50px"/></td>
-                        <td><img src="../arquivos/"<%=item.getFoto3()%> height="70px" width="50px"/></td>
-                        
-                        
+                        <td><%=item.getCategoria()%></td>
+                        <td><%=item.getEditora()%></td>
+                        <td><img src="../arquivos/<%=item.getFoto1()%>" width="40px" height="40px"/> </td>
+                        <td><img src="../arquivos/<%=item.getFoto2()%>" width="40px" height="40px"/> </td>
+                        <td><img src="../arquivos/<%=item.getFoto3()%>" width="40px" height="40px"/> </td>
+                        <td><%=item.getSinopse() %></td>
                         <td><a href="upd.jsp?codigo=<%=item.getId()%>" class="btn  btn-primary btn-sm">Alterar</a>
-                            <button class="btn  btn-danger btn-sm" data-toggle="modal" data-target="#myModal" 
-                                    onclick="codigo=<%=item.getId()%>">Excluir</button>  
+                            <button class="btn  btn-danger btn-sm" data-toggle="modal" data-target="#myModal" onclick="codigo=<%=item.getId()%>">Excluir</button>  
                         </td>
                     </tr>
                     <% } %>
