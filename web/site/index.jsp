@@ -5,35 +5,21 @@
 <%@include file="cabecalho.jsp" %>
 <%
     LivroDAO dao = new LivroDAO();
-    List<Livro> lista = dao.listar();
-    
-    if (request.getParameter("categoriaid")!=null)
-    {
-        Integer id = Integer.parseInt(request.getParameter("categoriaid"));
+    List<Livro> lista;
+    //se é para filtrar por categoria
+    if(request.getParameter("categoriaid")!=null){
+        
+        Integer id = 
+                Integer.parseInt(request.getParameter("categoriaid"));
         Categoria c = cdao.buscarPorChavePrimaria(id);
         lista = c.getLivroList();
     }
-    else
-    {
+    else{
         lista = dao.listar();
     }
+   
     dao.fecharConexao();
 %>
-<head>
-    <title>Wonderland</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Wish shop project">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-</head>
 <!-- Home -->
 
 <div class="home">
@@ -121,7 +107,7 @@
             <div class="col-lg-4 product_col">
                 <div class="product">
                     <div class="product_image">
-                        <img src="images/product_1.jpg" alt="">
+                        <img src="images/product_1.jpg"<%=livro.getFoto1()%> alt="">
                     </div>
                     <div class="rating rating_4">
                         <i class="fa fa-star"></i>
@@ -132,8 +118,8 @@
                     </div>
                     <div class="product_content clearfix">
                         <div class="product_info">
-                            <div class="product_name"><a href="produtos.jsp">Como eu era antes de você</a></div>
-                            <div class="product_price">R$35.00</div>
+                            <div class="product_name"><a href="produtos.jsp"><%=livro.getNome()%></a></div>
+                            <div class="product_price"><%=livro.getPreco()%></div>
                         </div>
                         <div class="product_options">
                             <div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
@@ -240,13 +226,4 @@
         </div>
     </div>	
 </div>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
-<script src="js/custom.js"></script>
 <%@include file="rodape.jsp" %>

@@ -5,42 +5,15 @@
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp" %>
-<%
-    if(request.getParameter("id")==null)
-    {
+<%    if (request.getParameter("id") == null) {
         response.sendRedirect("index.jsp");
         return;
     }
+
     Integer id = Integer.parseInt(request.getParameter("id"));
     LivroDAO dao = new LivroDAO();
-    Livro l = dao.buscarPorChavePrimaria(id);
-    List<Compralivro> carrinho;
-    Compralivro cl = new Compralivro();
-    cl.setLivro(l);
-    cl.setValorunitario(l.getPreco());
-    if(session.getAttribute("carrinho")!= null)
-    {
-        carrinho = (List<Compralivro>)session.getAttribute("Carrinho");
-        carrinho.add(cl);
-    }
-    else
-    {
-        carrinho = new ArrayList<Compralivro>();
-        carrinho.add(cl);
-    }
-    session.setAttribute("carrinho", carrinho);
+    Livro obj = dao.buscarPorChavePrimaria(id);
 %>
-<head>
-    <title>Wondeland</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Wish shop project">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="styles/product.css">
-    <link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
-</head>
 <!-- Home -->
 <div class="home">
     <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/product.jpg" data-speed="0.8"></div>
@@ -74,7 +47,7 @@
                     <ul>
                         <li><a href="categories.html">Fisicos</a></li>
                         <li><a href="categories.html">Romance</a></li>
-                        <li>Como eu era antes de você</li>
+                        <li><%=obj.getNome()%></li>
                     </ul>
                 </div>
             </div>
@@ -96,8 +69,8 @@
             <!-- Product Content -->
             <div class="col-lg-5">
                 <div class="product_content">
-                    <div class="product_name">Como eu era antes de você</div>
-                    <div class="product_price">R$35.00</div>
+                    <div class="product_name"><%=obj.getNome()%></div>
+                    <div class="product_price">R$<%=obj.getPreco()%></div>
                     <div class="rating rating_4" data-rating="4">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -111,7 +84,7 @@
                         <span>no estoque</span>
                     </div>
                     <div class="product_text">
-                        <p>O Will morre!!!</p>
+                        <p>sinopse aqui</p>
                     </div>
                     <!-- Product Quantity -->
                     <div class="product_quantity_container">
@@ -204,10 +177,4 @@
         </div>
     </div>		
 </div>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="js/product_custom.js"></script>
 <%@include file="rodape.jsp"%>
